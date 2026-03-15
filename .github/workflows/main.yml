@@ -15,7 +15,7 @@ jobs:
       - name: buildPrint
         run: echo "Building in progress"
       - name: checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v1
   test:
     name: test flow
     runs-on: ubuntu-latest
