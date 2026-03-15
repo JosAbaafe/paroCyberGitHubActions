@@ -14,7 +14,8 @@ jobs:
     steps:
       - name: buildPrint
         run: echo "Building in progress"
-      - uses: actions/checkout@v1
+      - name: checkout code
+        uses: actions/checkout@v4
   test:
     name: test flow
     runs-on: ubuntu-latest
@@ -22,7 +23,8 @@ jobs:
     steps:
       - name: Errors
         run: echo "Testing for errors"
-      - uses: actions/checkout@v1
+      - name: checkout code
+        uses: actions/checkout@v1
   deploy:
     name: deploy flow
     runs-on: ubuntu-latest
@@ -30,4 +32,5 @@ jobs:
     steps:
       - name: deploy
         run: echo "Finally deployed"  	
-      - uses: actions/checkout@v1
+      - name: checkout code
+        uses: actions/checkout@v1
