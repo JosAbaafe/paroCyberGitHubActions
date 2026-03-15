@@ -1,0 +1,36 @@
+name: Basic Workflow Structure
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - feature1
+jobs:
+  build:
+    name: build flow
+    runs-on: ubuntu-latest
+    steps:
+      - name: buildPrint
+        run: echo "Building in progress"
+      - name: checkout code
+        uses: actions/checkout@v4
+  test:
+    name: test flow
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Errors
+        run: echo "Testing for errors"
+      - name: checkout code
+        uses: actions/checkout@v1
+  deploy:
+    name: deploy flow
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: deploy
+        run: echo "Finally deployed"  	
+      - name: checkout code
+        uses: actions/checkout@v1
